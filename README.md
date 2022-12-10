@@ -1,3 +1,13 @@
+### Add domain into the hosts file to be able to access it
+```bash
+sudo vim /etc/hosts
+```
+
+Add following line into the file
+```
+127.0.0.1   docker-lemp.test
+```
+
 ### Issue certificate for the domain
 
 ```bash
