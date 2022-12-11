@@ -32,24 +32,21 @@ RUN apk --update add \
   build-base \
   libmcrypt-dev \
   libxml2-dev \
-  pcre-dev \
+  libzip-dev \
+  libxslt-dev \
+  libgcrypt-dev \
   zlib-dev \
+  gettext-dev \
+  pcre-dev \
   autoconf \
   oniguruma-dev \
-  openssl \
+  postgresql-dev \
   openssl-dev \
   freetype-dev \
   libjpeg-turbo-dev \
   jpeg-dev \
   libpng-dev \
   imagemagick-dev \
-  imagemagick \
-  postgresql-dev \
-  libzip-dev \
-  gettext-dev \
-  libxslt-dev \
-  libgcrypt-dev \
-  php8-pecl-xdebug \
   linux-headers &&\
   rm /var/cache/apk/*
 
@@ -79,6 +76,7 @@ RUN docker-php-ext-install \
 RUN docker-php-ext-configure gd --with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ && \
     docker-php-ext-install gd
 
+# Install composer form it's latest image
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Make sure files/folders needed by the processes are accessable when they run under the developer user
@@ -92,5 +90,4 @@ USER developer
 #HEALTHCHECK --timeout=10s CMD curl --silent --fail http://localhost/fpm-ping
 
 EXPOSE 9000
-#CMD ["php-fpm"]
 CMD ["php-fpm", "-y", "/usr/local/etc/php-fpm.conf", "-R"]
