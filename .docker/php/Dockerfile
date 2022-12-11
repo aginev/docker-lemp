@@ -13,9 +13,9 @@ RUN addgroup -g ${GID} --system developer
 RUN adduser -G developer --system -D -s /bin/sh -u ${UID} developer
 
 # Configure PHP-FPM
-RUN /bin/cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
-COPY .docker/php/php.ini /usr/local/etc/php/conf.d/custom.ini
-COPY .docker/php/www.conf /usr/local/etc/php-fpm.d/www.conf
+#RUN /bin/cp /usr/local/etc/php/php.inielopment /usr/local/etc/php/php.ini
+#COPY .docker/php/php.ini /usr/local/etc/php/conf.d/custom.ini
+#COPY .docker/php/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 # Run PHP with user developer
 #RUN sed -i "s/user = www-data/user = developer/g" /usr/local/etc/php-fpm.d/www.conf
