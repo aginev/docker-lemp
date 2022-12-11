@@ -24,3 +24,7 @@ docker-composer build
 ```bash
 docker-composer up -d
 ```
+
+### Xdebug
+
+Note that PHP and Xdebug are not able to work on same port so use port 9003 at PhpStorm
