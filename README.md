@@ -17,12 +17,12 @@ mkcert -key-file key.pem -cert-file cert.pem docker-lemp.test "*.docker-lemp.tes
 
 ### Build containers
 ```bash
-docker-composer build
+docker-compose build
 ```
 
 ### Start containers
 ```bash
-docker-composer up -d
+docker-compose up -d
 ```
 
 ### Xdebug
